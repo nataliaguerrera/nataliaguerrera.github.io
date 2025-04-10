@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Natalia Guerrera">
-<meta name="dcterms.date" content="2025-04-01">
+<meta name="dcterms.date" content="2025-04-13">
 
-<title>Does the NBA produce better athletes than the NFL? – Natalia's Sports Blog</title>
+<title>How has Steph Curry playing style evolved as he’s aged? – Natalia's Sports Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,10 +149,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Does the NBA produce better athletes than the NFL?</h1>
+      <h1 class="title">How has Steph Curry playing style evolved as he’s aged?</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">nba</div>
-                <div class="quarto-category">nfl</div>
+                <div class="quarto-category">warriors</div>
                 <div class="quarto-category">athlete</div>
               </div>
                   </div>
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 1, 2025</p>
+        <p class="date">April 13, 2025</p>
       </div>
     </div>
     
@@ -190,14 +190,165 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>The NFL creates better athletes than the NBA.</p>
+<p>Steph Curry has not changed due to his age. Steph curry is the best.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rookie <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/seasonone_curry .csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 83 Columns: 34
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," chr
+(30): Team, ...6, Opp, Result, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, ... dbl
+(3): Rk, Gcar, Gtm date (1): Date
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...6`</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ purrr     1.0.2
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggalt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 methods overwritten by 'ggalt':
+  method                  from   
+  grid.draw.absoluteGrob  ggplot2
+  grobHeight.absoluteGrob ggplot2
+  grobWidth.absoluteGrob  ggplot2
+  grobX.absoluteGrob      ggplot2
+  grobY.absoluteGrob      ggplot2</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rookie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code># A tibble: 6 × 34
+     Rk  Gcar   Gtm Date       Team  ...6  Opp   Result  GS    MP    FG    FGA  
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+1     1     1     1 2009-10-28 GSW   &lt;NA&gt;  HOU   L 107-… *     35:3… 7     12   
+2     2     2     2 2009-10-30 GSW   @     PHO   L 101-… *     39:0… 5     9    
+3     3     3     3 2009-11-04 GSW   &lt;NA&gt;  MEM   W 113-… *     28:2… 3     6    
+4     4     4     4 2009-11-06 GSW   &lt;NA&gt;  LAC   L 90-1… *     21:32 1     5    
+5     5     5     5 2009-11-08 GSW   @     SAC   L 107-… *     31:1… 4     8    
+6     6     6     6 2009-11-09 GSW   &lt;NA&gt;  MIN   W 146-… *     29:4… 2     8    
+# ℹ 22 more variables: `FG%` &lt;chr&gt;, `3P` &lt;chr&gt;, `3PA` &lt;chr&gt;, `3P%` &lt;chr&gt;,
+#   `2P` &lt;chr&gt;, `2PA` &lt;chr&gt;, `2P%` &lt;chr&gt;, `eFG%` &lt;chr&gt;, FT &lt;chr&gt;, FTA &lt;chr&gt;,
+#   `FT%` &lt;chr&gt;, ORB &lt;chr&gt;, DRB &lt;chr&gt;, TRB &lt;chr&gt;, AST &lt;chr&gt;, STL &lt;chr&gt;,
+#   BLK &lt;chr&gt;, TOV &lt;chr&gt;, PF &lt;chr&gt;, PTS &lt;chr&gt;, GmSc &lt;chr&gt;, `+/-` &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rookie <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">stat =</span> <span class="fu">c</span>(<span class="st">"Points per Game"</span>, <span class="st">"3PA per Game"</span>, <span class="st">"3P%"</span>, <span class="st">"Usage Rate"</span>, <span class="st">"Assists"</span>, <span class="st">"FG%"</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">rookie =</span> <span class="fu">c</span>(<span class="fl">6.6</span>, <span class="fl">4.8</span>, <span class="fl">43.7</span>, <span class="fl">21.2</span>, <span class="fl">5.9</span>, <span class="fl">46.2</span>),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">current =</span> <span class="fu">c</span>(<span class="fl">8.7</span>, <span class="fl">11.8</span>, <span class="fl">40.8</span>, <span class="fl">31.6</span>, <span class="fl">5.1</span>, <span class="fl">45.0</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rookie, <span class="fu">aes</span>(<span class="at">x =</span> rookie, <span class="at">xend =</span> current, <span class="at">y =</span> stat)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dumbbell</span>(<span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">colour_x =</span> <span class="st">"blue"</span>,  </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">colour_xend =</span> <span class="st">"yellow"</span>) <span class="sc">+</span>  </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Has Steph Curry's age stopped him?"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"21 years old and 37 years old"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Stat Value"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"By: Natalia Guerrera </span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="st">       Source: Sports Reference"</span>) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using the `size` aesthetic with geom_segment was deprecated in ggplot2 3.4.0.
+ℹ Please use the `linewidth` aesthetic instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>current <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/warriors_curry.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 83 Columns: 34
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," chr
+(30): Team, ...6, Opp, Result, GS, MP, FG, FGA, FG%, 3P, 3PA, 3P%, 2P, ... dbl
+(3): Rk, Gcar, Gtm date (1): Date
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...6`</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(waffle)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>rookie <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">FG%</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">46</span>, <span class="st">`</span><span class="at">3P%</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">44</span>, <span class="st">`</span><span class="at">FT%</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">89</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>current <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">FG%</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">45</span>, <span class="st">`</span><span class="at">3P%</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">41</span>, <span class="st">`</span><span class="at">FT%</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">92</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>rookie_waffle <span class="ot">&lt;-</span> <span class="fu">waffle</span>(rookie, <span class="at">rows =</span> <span class="dv">10</span>, </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"darkgreen"</span>),</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="st">"Rookie Season (2009–10)"</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>current_waffle <span class="ot">&lt;-</span> <span class="fu">waffle</span>(current, <span class="at">rows =</span> <span class="dv">10</span>, </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                         <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"darkgreen"</span>),</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="st">"2023–24 Season"</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>rookie_waffle <span class="sc">+</span> current_waffle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 
