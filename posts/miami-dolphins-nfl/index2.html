@@ -190,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>The Miami Dolphins continue through their seasons known for their home-field advantage with the Florida heat. With blazing temperatures and clear skies, they looked unstoppable early on—putting up huge yardage and dominating opponents at home. But as the season cooled down, so did their production. The team that seemed untouchable in the sun began to struggle in colder weather conditions. As the playoffs loomed, a new question surfaced: were the Dolphins actually a bad weather fraud?</p>
+<p>The Miami Dolphins continue through their seasons known for their home-field advantage with the Florida heat. With blazing temperatures and clear skies, they looked unstoppable after dominating opponents when it is warm. As the season cooled down, so did their production. The team that seemed untouchable in the sun began to struggle in colder weather conditions. This brings up the question: Is Miami’s Offense Actually a Bad Weather Fraud?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -247,32 +247,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The line graph illustrates how weather impacts scoring by quarter. In good weather, teams score steadily across all four quarters, with noticeable peaks in the second. In contrast, bad weather suppresses scoring in the early quarters. Interestingly, there’s a spike in the fourth quarter during bad weather games—suggesting late-game urgency or defensive fatigue may influence outcomes despite poor conditions.</p>
+<p>The line graph illustrates how weather impacts scoring by quarter. In good weather, teams score steadily across all four quarters, with noticeable peaks in the second. In contrast, bad weather suppresses scoring in the early quarters. Interestingly, there’s a spike in the fourth quarter during bad weather games that suggest late-game urgency or defensive fatigue may influence outcomes despite poor conditions.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cold_weather_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Temperature_Range =</span> <span class="fu">c</span>(<span class="st">"≤ 40°F"</span>, <span class="st">"≤ 23°F"</span>),</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Wins =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Losses =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">7</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>cold_weather_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(cold_weather_summary, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Wins"</span>, <span class="st">"Losses"</span>),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">names_to =</span> <span class="st">"Result"</span>, <span class="at">values_to =</span> <span class="st">"Games"</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cold_weather_long, <span class="fu">aes</span>(<span class="at">x =</span> Temperature_Range, <span class="at">y =</span> Games, <span class="at">fill =</span> Result)) <span class="sc">+</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Wins"</span> <span class="ot">=</span> <span class="st">"#008E97"</span>, <span class="st">"Losses"</span> <span class="ot">=</span> <span class="st">"#FC4C02"</span>)) <span class="sc">+</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Freezing the Fins: Miami’s Cold-Weather Curse"</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"A look at how the Dolphins perform when temperatures </span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">drop below comfort zone."</span>,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Temperature at Kickoff"</span>,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Games"</span>,</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"By Natalia Guerrera | Source: Sports Reference"</span>,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Game Result"</span>) <span class="sc">+</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cold_weather_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Temperature_Range =</span> <span class="fu">c</span>(<span class="st">"45 degrees or less"</span>, <span class="st">"Greater than 45 degrees"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Wins =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">36</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Losses =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">16</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>cold_weather_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  cold_weather_summary,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Wins"</span>, <span class="st">"Losses"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"Result"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">"Games"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cold_weather_long, <span class="fu">aes</span>(<span class="at">x =</span> Temperature_Range, <span class="at">y =</span> Games, <span class="at">fill =</span> Result)) <span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Wins"</span> <span class="ot">=</span> <span class="st">"#008E97"</span>, <span class="st">"Losses"</span> <span class="ot">=</span> <span class="st">"#FC4C02"</span>)) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Tua Tagovailoa’s Cold Weather Struggles"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Tua is 0-8 when the temperature is 45°F or colder and </span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">36-16 when it's greater than 45°F."</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Temperature at Kickoff"</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Games"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"By Natalia Guerrera | Source: Sports Reference"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Game Result"</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -282,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This graph highlights Tua Tagovailoa struggles in cold weather, particularly when temperatures dip below 40°F. The Dolphins have yet to win a game in these freezing conditions (0–11) and fare only slightly better when it’s extremely cold (≤ 23°F), with 3 wins and 7 losses. The data reinforces that Miami’s performance drops significantly as the thermometer does.</p>
+<p>This graph higlights Tua Tagavailoa’s struggle when it comes to weather that is less than 45 degrees at kickoff. In cold conditions, he has yet to win a game, going 0-8 over his career. When the temperature is greater than 45 degrees, Tagovailoa has a strong 36-16 record, showing a clear performance gap due to climate.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -293,42 +299,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>points_scored <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">372</span>, <span class="dv">124</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>points_allowed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">209</span>, <span class="dv">182</span>)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="at">cex.main =</span> <span class="fl">0.9</span>, <span class="at">cex.lab =</span> <span class="fl">0.8</span>, <span class="at">cex.axis =</span> <span class="fl">0.8</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)) </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Barplot 1: Yards</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(offense_yards, defense_yards),</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">beside =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"firebrick"</span>),</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">names.arg =</span> weather,</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(offense_yards) <span class="sc">+</span> <span class="dv">500</span>),</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Yard Work: Miami’s Production </span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">in Heat vs Cold"</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Yards"</span>,</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex.names =</span> <span class="fl">0.8</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Offense"</span>, <span class="st">"Defense Allowed"</span>), <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"firebrick"</span>), <span class="at">cex =</span> <span class="fl">0.7</span>)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Barplot 2: Points</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(points_scored, points_allowed),</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">beside =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"orange"</span>),</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">names.arg =</span> weather,</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(points_scored) <span class="sc">+</span> <span class="dv">50</span>),</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Scoring Freeze: Points For and </span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="st">Against by Weather"</span>,</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Points"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>games_heat <span class="ot">&lt;-</span> <span class="dv">12</span>     </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>games_cold <span class="ot">&lt;-</span> <span class="dv">6</span>     </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>avg_offense_yards <span class="ot">&lt;-</span> <span class="fu">c</span>(offense_yards[<span class="dv">1</span>] <span class="sc">/</span> games_heat, offense_yards[<span class="dv">2</span>] <span class="sc">/</span> games_cold)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>avg_defense_yards <span class="ot">&lt;-</span> <span class="fu">c</span>(defense_yards[<span class="dv">1</span>] <span class="sc">/</span> games_heat, defense_yards[<span class="dv">2</span>] <span class="sc">/</span> games_cold)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>avg_points_scored <span class="ot">&lt;-</span> <span class="fu">c</span>(points_scored[<span class="dv">1</span>] <span class="sc">/</span> games_heat, points_scored[<span class="dv">2</span>] <span class="sc">/</span> games_cold)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>avg_points_allowed <span class="ot">&lt;-</span> <span class="fu">c</span>(points_allowed[<span class="dv">1</span>] <span class="sc">/</span> games_heat, points_allowed[<span class="dv">2</span>] <span class="sc">/</span> games_cold)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>), <span class="at">cex.main =</span> <span class="fl">0.9</span>, <span class="at">cex.lab =</span> <span class="fl">0.8</span>, <span class="at">cex.axis =</span> <span class="fl">0.8</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(avg_offense_yards, avg_defense_yards),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">beside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"firebrick"</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">names.arg =</span> weather,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(avg_offense_yards) <span class="sc">+</span> <span class="dv">500</span>),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Yardage Allowed"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Yards (Per Game)"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex.names =</span> <span class="fl">0.8</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Offense Allowed"</span>, <span class="st">"Defense Allowed"</span>), <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"firebrick"</span>), <span class="at">cex =</span> <span class="fl">0.7</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(avg_points_scored, avg_points_allowed),</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">beside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"orange"</span>),</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">names.arg =</span> weather,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(avg_points_scored) <span class="sc">+</span> <span class="dv">10</span>),</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Scoring Freeze"</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Points (Per Game)"</span>,</span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex.names =</span> <span class="fl">0.8</span></span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Points Scored"</span>, <span class="st">"Points Allowed"</span>), <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"orange"</span>), <span class="at">cex =</span> <span class="fl">0.7</span>)</span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Shared footnote</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Note: Heat = &gt;60°F | Cold = ≤60°F"</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">outer =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"By: Natalia Guerrera | Source: Sports Reference"</span>, </span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>      <span class="at">side =</span> <span class="dv">1</span>, <span class="at">outer =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="dv">4</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">font =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"By: Natalia Guerrera | Source: Sports Reference"</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">outer =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"By: Natalia Guerrera | Source: Sports Reference"</span>, </span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>      <span class="at">side =</span> <span class="dv">1</span>, <span class="at">outer =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="dv">4</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">font =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -339,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>This graph shows that the Miami offense performs significantly better in warm weather, gaining more yards and scoring more points compared to cold conditions. Meanwhile, their defense allows slightly fewer yards in cold games but gives up nearly the same number of points. Overall, the data suggests that Miami struggles offensively in colder weather, highlighting a difference in performance based on temperature.</p>
-<p>The Miami Dolphins struggle significantly in cold weather, both in terms of game outcomes and offensive production. The stacked bar charts show sharp declines in yards gained and points scored in colder conditions, while defensive performance remains relatively steady—suggesting that offensive struggles are the primary issue. The win-loss chart further confirms this, with Miami winning almost no games in temperatures at or below 40°F. The line graph showed an interesting twist that scoring tends to spike in the fourth quarter even in bad weather, possibly due to late-game pressure or adjustments.</p>
+<p>The Miami Dolphins struggle significantly in cold weather, both in terms of game outcomes and offensive production. The offensive production is the big struggle when it comes to winning games that have a colder enviroment. Looking at Tua Tagovailoa we see that he does not thrive in cold weather ultimately hurting the rest of the teams performance.</p>
 <p>Altogether, the data supports the claim that cold weather hurts Miami’s overall performance, especially offensively. The consistent trends across this data support that Miami’s reputation for underperforming in the cold is the truth.</p>
 
 
